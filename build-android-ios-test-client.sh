@@ -22,6 +22,7 @@ cd mobileclient
 cordova platform add ios
 cordova platform add android
 cordova plugin add org.apache.cordova.console
+cordova plugin add org.apache.cordova.media
 
 cp www/config.xml .
 cp -R ../builds/radio-player/* www/
