@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "main"}
+            }
+        },
+
+        "audioVizKPop1": {
+            "prototype": "ui/audio-viz.reel",
+            "properties": {
+                "element": {"#": "audioVizKPop1"},
+                "src": "http://178.32.57.58:8817/;",
+                "posterSrc": "https://pbs.twimg.com/profile_images/378800000722160494/28a700275769e821b7a5eab5eb7d44da.jpeg",
+                "artist": "Live KPOP",
+                "track": "Malaysia's First KPOP Radio",
+                "currentArtist": "Girls` Generation",
+                "currentTrack": "Dancing Queen"
+            }
+        },
+
+        "audioVizKPop2": {
+            "prototype": "ui/audio-viz.reel",
+            "properties": {
+                "element": {"#": "audioVizKPop2"},
+                "src": "http://50.7.173.162:8076/;",
+                "posterSrc": "http://3.bp.blogspot.com/-2dRZTW3rMxQ/UEVAlwsgfkI/AAAAAAAAAPg/H868a9sFNNs/s1600/Big-B-Radio---KPOP-Channel-logo_580x220px.jpg",
+                "artist": "Big B Radio - KPOP",
+                "track": "The Hot Station for Asian Music",
+                "currentArtist": "Block B",
+                "currentTrack": "Shut My Eyes (Overlook Your Mistakes)"
+            }
+        },
+
+        "montageVersion": {
+            "prototype": "ui/version.reel",
+            "properties": {
+                "element": {"#": "montageVersion"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="Main">
+
+       <h1>MontageJS - Radio Players</h1>
+
+       <table>
+        <tr>
+            <td>
+                <div data-montage-id="audioVizKPop1"></div>
+            </td>
+            <td>
+                <div data-montage-id="audioVizKPop2"></div>
+            </td>
+        </tr>
+    </table>
+
+
+    <div data-montage-id="montageVersion"></div>
+</div>
+</body>
+</html>

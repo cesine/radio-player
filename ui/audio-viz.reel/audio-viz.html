@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="audio-viz.css">
+    
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "video"},
+                    "mediaElement": {"#": "mediaElement"}
+                }
+            },
+            "control": {
+                "prototype": "digit/ui/video-control.reel",
+                "properties": {
+                    "element": {"#": "control"},
+                    "video": {"@": "owner"}
+                },
+                "bindings": {
+                    "videoController": {"<-": "@owner.videoController"}
+                }
+            },
+            "play": {
+                "prototype": "digit/ui/button.reel",
+                "properties": {
+                    "element": {"#": "play"}
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"}
+                    }
+                ]
+            },
+
+            "artist": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "artist"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.artist"}
+                }
+            },
+
+            "track": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "track"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.track"}
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div data-montage-id="video" class="digit-Video digit-Video--firstPlay">
+        <video data-montage-id="mediaElement" class="digit-Video-frame">
+        </video>
+        <div class="digit-Video-cover">
+            <button data-montage-id="play" class="digit-Video-cover-button"> </button>
+        </div>
+        <menu data-montage-id="control">
+        </menu>
+        <marquee class="AudioViz-ticker" hidden>
+            <label data-montage-id="artist" >Artist</label> - <span data-montage-id="track">Track</span>
+        </marquee>
+    </div>
+
+</body>
+</html>

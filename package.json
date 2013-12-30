@@ -1,0 +1,12 @@
+{
+  "name": "radio-player",
+  "version": "0.1.0",
+  "dependencies": {
+    "montage": "git+http://github.com/cesine/montage.git#audio",
+    "digit": "git+http://github.com/cesine/digit.git#audio"
+  },
+  "exclude": [
+    "run-tests.html",
+    "test"
+  ]
+}
