@@ -14,6 +14,33 @@
             }
         },
 
+        "audioViz": {
+            "prototype": "ui/audio-viz.reel",
+            "properties": {
+                "element": {"#": "audioViz"},
+                "src": "http://9213.live.streamtheworld.com/WVKRFM",
+                "posterSrc": "http://www.tritondigital.com/Media/Default/images/logo.png",
+                "artist": "Stream the world WVKRFM ",
+                "track": "http://9213.live.streamtheworld.com/WVKRFM?streamtheworld_user=1&nobuf=1388378575269",
+                "currentArtist": "World Music",
+                "currentTrack": "Groovy"
+            }
+        },
+
+        "audioViz2": {
+            "prototype": "ui/audio-viz.reel",
+            "properties": {
+                "element": {"#": "audioViz2"},
+                "src": "http://3023.live.streamtheworld.com/ALTROCK_S01A_AAC",
+                "posterSrc": "http://www.tritondigital.com/Media/Default/images/logo.png",
+                "artist": "Stream the world ALTROCK_S01A_AAC",
+                "track": "http://3023.live.streamtheworld.com/ALTROCK_S01A_AAC",
+                "currentArtist": "Alternative rock",
+                "currentTrack": "Rockin' "
+            }
+        },
+
+
         "audioVizKPop1": {
             "prototype": "ui/audio-viz.reel",
             "properties": {
@@ -52,15 +79,34 @@
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
 
-       <h1>MontageJS - Radio Players</h1>
+     <h1>MontageJS - Radio Players</h1>
 
-       <table>
+     <h3>World Music</h3>
+
+     <table>
+        <tr>
+            <td>
+                <div data-montage-id="audioViz"></div>
+                <audio src="http://9213.live.streamtheworld.com/WVKRFM" controls/>
+            </td>
+            <td>
+                <div data-montage-id="audioViz2"></div>
+                <audio src="http://3023.live.streamtheworld.com/ALTROCK_S01A_AAC" controls/>
+            </td>
+        </tr>
+    </table>
+
+    <h3>KPOP</h3>
+
+    <table>
         <tr>
             <td>
                 <div data-montage-id="audioVizKPop1"></div>
+                <audio src="http://178.32.57.58:8817/;" controls/>
             </td>
             <td>
                 <div data-montage-id="audioVizKPop2"></div>
+                <audio src="http://50.7.173.162:8076/;" controls/>
             </td>
         </tr>
     </table>
