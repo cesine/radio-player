@@ -60,7 +60,9 @@ exports.AudioViz = Video.specialize( /** @lends AudioViz# */ {
 					var whichPicture = Math.floor(Math.random() * data.responseData.results.length);
 					console.log("Showing image "+whichPicture);
 					var result = data.responseData.results[whichPicture];
-					self.posterSrc = result.url;
+					if(result){
+						self.posterSrc = result.url;
+					}
 				});
 		}
 	},
