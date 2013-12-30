@@ -8,6 +8,8 @@ rm -rf builds
 mop
 
 echo "Removing extra stuff from builds to reduce apk size"
+echo 'TODO figure out what this does:   "bundles": ["ui/main.reel"], '
+
 cd  builds/radio-player/packages
 find . -name  "*[^d].js" -delete
 find . -name  "*.md" -delete
