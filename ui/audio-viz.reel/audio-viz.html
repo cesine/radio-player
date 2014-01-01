@@ -9,31 +9,42 @@
         {
             "owner": {
                 "properties": {
-                    "element": {"#": "video"},
+                    "element": {"#": "audioViz"},
                     "mediaElement": {"#": "mediaElement"}
                 }
             },
-            "control": {
-                "prototype": "digit/ui/video-control.reel",
+
+            "mediaElement": {
+                "prototype": "ui/audio.reel",
                 "properties": {
-                    "element": {"#": "control"},
-                    "video": {"@": "owner"}
+                    "element": {"#": "mediaElement"}
                 },
                 "bindings": {
-                    "videoController": {"<-": "@owner.videoController"}
+                    "src": {"<-": "@owner.src"}
                 }
             },
+
             "play": {
                 "prototype": "digit/ui/button.reel",
                 "properties": {
                     "element": {"#": "play"}
                 },
                 "listeners": [
-                    {
-                        "type": "action",
-                        "listener": {"@": "owner"}
-                    }
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
                 ]
+            },
+
+            "image1": {
+                "prototype": "digit/ui/image.reel",
+                "properties": {
+                    "element": {"#": "image1"}
+                },
+                "bindings": {
+                    "src": {"<-": "@owner.posterSrc"}
+                }
             },
 
             "artist": {
@@ -60,15 +71,14 @@
 </head>
 <body>
 
-    <div data-montage-id="video" class="digit-Video digit-Video--firstPlay">
-        <video data-montage-id="mediaElement" class="digit-Video-frame">
-        </video>
-        <div class="digit-Video-cover">
-            <button data-montage-id="play" class="digit-Video-cover-button"> </button>
-        </div>
-        <menu data-montage-id="control">
-        </menu>
-        <marquee class="AudioViz-ticker" hidden>
+    <div data-montage-id="audioViz" class="AudioViz">
+        <div data-montage-id="mediaElement" class="AudioViz-audio-element"></div>
+        <br/>
+        <button data-montage-id="play" class="AudioViz-play-button">Play</button>
+        <br/>
+        <img data-montage-id="image1" class="AudioViz-image"/>
+        <br/>
+        <marquee class="AudioViz-ticker">
             <label data-montage-id="artist" >Artist</label> - <span data-montage-id="track">Track</span>
         </marquee>
     </div>

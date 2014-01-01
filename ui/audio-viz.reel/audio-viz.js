@@ -1,14 +1,13 @@
 /**
  * @module ui/audio-viz.reel
- * @requires digit/ui/video.reel
+ * @requires montage/ui/component
  */
-var Video = require("digit/ui/video.reel").Video;
-
+var Component = require("montage/ui/component").Component;
 /**
  * @class AudioViz
  * @extends Component
  */
-exports.AudioViz = Video.specialize( /** @lends AudioViz# */ {
+exports.AudioViz = Component.specialize( /** @lends AudioViz# */ {
 	constructor: {
 		value: function AudioViz() {
 			this.super();
@@ -55,12 +54,12 @@ exports.AudioViz = Video.specialize( /** @lends AudioViz# */ {
 			// https://developers.google.com/image-search/v1/jsondevguide
 			this.jsonpCall("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=" + artist + "%20album%20cover&userip=69.70.68.82&safe=active",
 				function(data) {
-					console.log("Got album covers for "+ artist);
+					console.log("Got album covers for " + artist);
 					console.log(data);
 					var whichPicture = Math.floor(Math.random() * data.responseData.results.length);
-					console.log("Showing image "+whichPicture);
+					console.log("Showing image " + whichPicture);
 					var result = data.responseData.results[whichPicture];
-					if(result){
+					if (result) {
 						self.posterSrc = result.url;
 					}
 				});
@@ -83,12 +82,19 @@ exports.AudioViz = Video.specialize( /** @lends AudioViz# */ {
 		}
 	},
 
+	showPoster: {
+		value: function() {
+			console.log("showPoster ");
+		}
+	},
+
 	handlePlayAction: {
 		value: function() {
 			console.log("Play");
-			this.super();
+			// this.super();
 			this.artist = this.currentArtist;
 			this.track = this.currentTrack;
+			this._mediaElement.play();
 		}
 	},
 
@@ -115,6 +121,26 @@ exports.AudioViz = Video.specialize( /** @lends AudioViz# */ {
 			script.src = url + "&callback=" + callbackName;
 			document.head.appendChild(script);
 		}
+	},
+
+	enterDocument: {
+		value: function(firstTime) {
+			this.super(firstTime);
+
+			if (firstTime) {
+				this._mediaElement = this.templateObjects.mediaElement;
+			}
+		}
+	},
+
+	handleSrcChange: {
+		value: function(oldValue, newValue) {
+			console.log("Handle audio source change ", oldValue, newValue);
+		}
+	},
+
+	_mediaElement: {
+		value: null
 	}
 
 
